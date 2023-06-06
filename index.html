@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.8.1/cdn.min.js" defer></script>
+
+
+    <style>
+            .wrapper{
+    display:grid;
+    height:100vh;
+    place-items:center
+    }
+    </style>
+    <title>Component</title>
+</head>
+<body class="bg-gradient-to-tr from-red-300 to-yellow-200 overflow-x-hidden">
+    <h1 class=" flex justify-center text-3xl font-bold text-black ml-5 mt-5 mb-5">Component</h1>
+
+    <div id="button">
+        <h1 class="text-3xl font-bold text-black ml-5 mt-14 mb-5">Button</h1>
+        <div class="flex flex-row mt-10 ml-10">
+                <button class="py-2 px-10 mr-10 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">
+                    Button
+                </button>
+
+                <button class="relative mr-10 px-10 text-center  transition-all duration-500 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gray-900 before:transition-all before:duration-300 before:opacity-10 before:hover:opacity-0 before:hover:scale-50 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:opacity-0 after:transition-all after:duration-300 after:border after:border-black after:scale-125 after:hover:opacity-100 after:hover:scale-100">
+                <span class="relative text-black  font-thin">Button</span>
+                </button>
+
+                <div class="flex items-center">
+                    <button class="py-2 px-8 capitalize tracking-wide bg-gray-800 text-white font-medium rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Button</button>
+                    <span class="border"></span>
+                    <div x-data="{ dropdownOpen: true }" class="relative">
+                    <button @click="dropdownOpen = !dropdownOpen" class="relative z-10 block bg-gray-800 rounded p-2 hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
+                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                        </svg>
+                    </button>
+                    <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
+                    <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20">
+                        <span class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200">lorem ipsum</span>
+                        <span class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200">lorem ipsum</span>
+                        <span class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200">lorem ipsum</span>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div id="navbar">
+        <h1 class="text-3xl font-bold text-black ml-5 mt-14 mb-5">Navigation bar</h1>
+
+        <div class="flex flex-col mt-10">
+            <nav class=" mb-2 bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
+
+                                <!-- search bar -->
+                                <div class="hidden sm:block flex-shrink flex-grow-0 justify-start px-2">
+                                    <div class="inline-block">
+                                        <div class="inline-flex items-center max-w-full">
+                                            <input class="flex items-center flex-grow-0 flex-shrink pl-2 relative w-60 border rounded-full px-1  py-1" type="search" placeholder="search here">
+                                                <div class="flex items-center justify-center relative  h-8 w-8 rounded-full">
+                                                    <svg
+                                                        viewBox="0 0 32 32"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        aria-hidden="true"
+                                                        role="presentation"
+                                                        focusable="false"
+                                                        style="
+                                                            display: block;
+                                                            fill: none;
+                                                            height: 12px;
+                                                            width: 12px;
+                                                            stroke: currentcolor;
+                                                            stroke-width: 5.33333;
+                                                            overflow: visible;
+                                                        "
+                                                    >
+                                                        <g fill="none">
+                                                            <path
+                                                                d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"
+                                                            ></path>
+                                                        </g>
+                                                    </svg>
+                                                </div>
+                                            </input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end search bar -->
+
+                <!-- logo -->
+                <div class="">
+                    <!-- Logo -->
+                    <a class="cursor-pointer">
+                        <h3 class="text-3xl font-medium text-black">
+                            Navigation Bar
+                        </h3>
+                    </a>
+                </div>
+                <!-- end logo -->
+            
+
+            
+                <!-- login -->
+                <div class="flex-initial">
+                  <div class="flex justify-end items-center relative">
+                   
+
+            
+                    <div class="block">
+                        <div class="inline relative">
+                            <button type="button" class="inline-flex items-center relative px-2 border rounded-full hover:shadow-lg">
+                                <div class="pl-1">
+                                    <svg
+                                        viewBox="0 0 32 32"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true"
+                                        role="presentation"
+                                        focusable="false"
+                                        style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;"
+                                    >
+                                        <g fill="none" fill-rule="nonzero">
+                                            <path d="m2 16h28"></path>
+                                            <path d="m2 24h28"></path>
+                                            <path d="m2 8h28"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+            
+                                <div class="block flex-grow-0 flex-shrink-0 h-10 w-12 pl-5">
+                                    <svg
+                                        viewBox="0 0 32 32"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true"
+                                        role="presentation"
+                                        focusable="false"
+                                        style="display: block; height: 100%; width: 100%; fill: currentcolor;"
+                                    >
+                                        <path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end login -->
+            </nav>
+
+                <div class="flex flex-col items-center relative  h-44 justify-around w-screen mb-2" x-cloak x-data="appData()" x-init="appInit()">
+                    <div class="flex flex-col">
+                        <!-- Page Scroll Progress -->
+                
+                        <!-- Navbar -->
+                        <nav class="flex justify-around bg-white/80
+                            backdrop-blur-md shadow-md w-screen" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
+                
+                            <!-- Logo Container -->
+                            <div class="">
+                                <!-- Logo -->
+                                <a class="cursor-pointer">
+                                    <h3 class="text-3xl font-medium text-blue-500">
+                                        Navigation Bar
+                                    </h3>
+                                </a>
+                            </div>
+                
+                            <!-- Links Section -->
+                            <div class="items-center hidden space-x-8 lg:flex">
+                                <a class="flex text-gray-600 hover:text-blue-500
+                                    cursor-pointer transition-colors duration-300">
+                                    Home
+                                </a>
+                
+                                <a class="flex text-gray-600 
+                                    cursor-pointer transition-colors duration-300
+                                    font-semibold text-blue-600">
+                                    Themes
+                                </a>
+                
+                                <a class="flex text-gray-600 hover:text-blue-500
+                                    cursor-pointer transition-colors duration-300">
+                                    Developers
+                                </a>
+                
+                                <a class="flex text-gray-600 hover:text-blue-500
+                                    cursor-pointer transition-colors duration-300">
+                                    Pricing
+                                </a>
+                
+                                <a class="flex text-gray-600 hover:text-blue-500
+                                    cursor-pointer transition-colors duration-300">
+                                    Blog
+                                </a>
+                
+                                <a class="flex text-gray-600 hover:text-blue-500
+                                    cursor-pointer transition-colors duration-300">
+                                    About Us
+                                </a>
+                            </div>
+                
+                            <!-- Icon Menu Section -->
+                            <div class="flex items-center space-x-5">
+                                <!-- Register -->
+                                <a class="flex text-gray-600 hover:text-blue-500
+                                    cursor-pointer transition-colors duration-300">
+                
+                                    <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0L11.34 .03L15.15 3.84L16.5 2.5C19.75 4.07 22.09 7.24 22.45 11H23.95C23.44 4.84 18.29 0 12 0M12 4C10.07 4 8.5 5.57 8.5 7.5C8.5 9.43 10.07 11 12 11C13.93 11 15.5 9.43 15.5 7.5C15.5 5.57 13.93 4 12 4M12 6C12.83 6 13.5 6.67 13.5 7.5C13.5 8.33 12.83 9 12 9C11.17 9 10.5 8.33 10.5 7.5C10.5 6.67 11.17 6 12 6M.05 13C.56 19.16 5.71 24 12 24L12.66 23.97L8.85 20.16L7.5 21.5C4.25 19.94 1.91 16.76 1.55 13H.05M12 13C8.13 13 5 14.57 5 16.5V18H19V16.5C19 14.57 15.87 13 12 13M12 15C14.11 15 15.61 15.53 16.39 16H7.61C8.39 15.53 9.89 15 12 15Z" />
+                                    </svg>
+                
+                                    Register
+                                </a>
+                
+                                <!-- Login -->
+                                <a class="flex
+                                    cursor-pointer transition-colors duration-300
+                                    font-semibold text-blue-600">
+                
+                                    <svg class="fill-current h-5 w-5 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z" />
+                                    </svg>
+                
+                                    Login
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            
+
+            <div class="flex flex-wrap place-items-center mb-2">
+                <section class="relative">
+                    <!-- navbar -->
+                  <nav class="flex justify-between bg-gray-900 text-white w-screen">
+                    <div class="px-5 xl:px-12 py-6 flex w-screen items-center">
+                      <a class="text-3xl font-bold font-heading" href="">
+                        <!-- <img class="h-9" src="logo.png" alt="logo"> -->
+                        Navigation Bar
+                      </a>
+                      <!-- Nav Links -->
+                      <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
+                        <li><a class="hover:text-gray-200" href="">Home</a></li>
+                        <li><a class="hover:text-gray-200" href="">Catagory</a></li>
+                        <li><a class="hover:text-gray-200" href="">Collections</a></li>
+                        <li><a class="hover:text-gray-200" href="">Contact Us</a></li>
+                      </ul>
+                      <!-- Header Icons -->
+                      <div class="hidden xl:flex items-center space-x-5">
+                        <a class="hover:text-gray-200" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                          </svg>
+                        </a>
+                        <a class="flex items-center hover:text-gray-200" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                          <span class="flex absolute -mt-5 ml-4">
+                            <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500">
+                              </span>
+                            </span>
+                        </a>
+                        <!-- Sign In / Register      -->
+                        <a class="flex items-center hover:text-gray-200" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </a>
+                        
+                      </div>
+                    </div>
+                    <!-- Responsive navbar -->
+                    <a class="xl:hidden flex mr-6 items-center" href="#">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                      <span class="flex absolute -mt-5 ml-4">
+                        <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500">
+                        </span>
+                      </span>
+                    </a>
+                    <a class="navbar-burger self-center mr-12 xl:hidden" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </a>
+                  </nav>
+                  
+                </section>
+              </div>
+        </div>
+    </div>
+
+    <div id="card">
+        <h1 class="text-3xl font-bold text-black ml-5 mt-14 mb-5">Card</h1>
+
+        <div class=" flex-row mt-5 min-h-screen  flex justify-center items-center">
+            <div class="md:px-4 gap-5 space-y-4 md:space-y-0">
+                <div class="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl">
+                    <h3 class="mb-3 text-xl font-bold text-indigo-600">Lorem ipsum dolor</h3>
+                    <div class="relative">
+                      <img class="w-full rounded-xlbg-gray-200 group-hover:opacity-75" src="./assets/max-chen-lud4OaUCP4Q-unsplash.jpg" alt="Colors" />
+                      <p class="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">Lorem</p>
+                    </div>
+                    <h1 class="mt-4 text-gray-800 text-2xl font-bold cursor-pointer">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                    <div class="my-4">
+                      <div class="flex space-x-1 items-center">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto sunt non quos reprehenderit, aut excepturi laboriosam aspernatur, voluptas aliquid commodi pariatur quis provident architecto. Illo sapiente dicta consequuntur omnis dolorem!</p>
+                      </div>
+                      <button class="mt-4 text-xl w-full text-white bg-indigo-600 py-2 rounded-xl shadow-lg">Button</button>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="wrapper text-gray-900">
+                <div>
+                    
+                    <img src="./assets/Where to stay in China - Banyan Tree Lijiang.jpeg" alt=" random imgee" class="w-full object-cover object-center rounded-lg shadow-md">    
+                    
+                 <div class="relative px-4 -mt-16  ">
+                   <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-baseline">
+                      <span class="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
+                        New
+                      </span>
+                      <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+                    2 baths  &bull; 3 rooms
+                  </div>  
+                    </div>
+                    
+                    <h4 class="mt-1 text-xl font-semibold uppercase leading-tight truncate">A random Title</h4>
+                 
+                  <div class="mt-1">
+                    $1800
+                    <span class="text-gray-600 text-sm">   /wk</span>
+                  </div>
+                  <div class="mt-4">
+                    <span class="text-teal-600 text-md font-semibold">4/5 ratings </span>
+                    <span class="text-sm text-gray-600">(based on 234 ratings)</span>
+                  </div>  
+                  </div>
+                 </div>
+                  
+                </div>
+            </div>
+
+            <article class="rounded-xl border border-gray-700 bg-gray-800 p-4 ml-5 mr-5">
+                <div class="flex items-center">
+                  <img alt="Developer" src="./assets/The invisible meme.jpeg"
+                    class="h-16 w-16 rounded-full object-cover"/>
+              
+                  <div class="ml-4">
+                    <h3 class="text-lg font-medium text-white">Udean Pen</h3>
+              
+                    <div class="flow-root">
+                      <ul class=" flex flex-wrap">
+                        <li class="p-1 leading-none">
+                          <a href="" class="text-xs font-medium text-gray-300">lorem</a>
+                        </li>
+              
+                        <li class="p-1 leading-none">
+                          <a href="" class="text-xs font-medium text-gray-300">lorem</a>
+                        </li>
+              
+                        <li class="p-1 leading-none">
+                          <a href="" class="text-xs font-medium text-gray-300">lorem</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              
+                <ul class="mt-4 space-y-2">
+                  <li>
+                    <a
+                      href="#"
+                      class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600"
+                    >
+                      <strong class="font-medium text-white">Project A</strong>
+              
+                      <p class="mt-1 text-xs font-medium text-gray-300">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                        consequuntur deleniti, unde ab ut in!
+                      </p>
+                    </a>
+                  </li>
+              
+                  <li>
+                    <a
+                      href="#"
+                      class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600"
+                    >
+                      <strong class="font-medium text-white">Project B</strong>
+              
+                      <p class="mt-1 text-xs font-medium text-gray-300">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+                        cumque saepe sit.
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+              </article>
+        </div>
+    </div>
+
+    <div id="carousel ">
+        <h1 class="text-3xl font-bold text-black ml-5 mt-14 mb-5">carousel</h1>
+
+        <div class=" flex-row mt-5 min-h-screen  flex justify-center items-center">
+            
+        <div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
+            <div class="w-full relative flex items-center justify-center">
+                <button aria-label="slide backward" class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
+                    <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+                    <div id="slider" class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                            <div class="flex flex-col items-center justify-center mt-6 mb-96">
+                                <div class="flex flex-col shadow-md cursor-pointer w-96 hover:-translate-y-1 duration-300">
+                                    <div class="inline relative group h-48">
+                                        <img class="absolute rounded-t object-cover h-full w-full"
+                                        src="https://images.unsplash.com/photo-1627384113858-ce93ff568d1f?auto=format&fit=crop&w=1170&q=80" alt="Product Preview" />
+                                        <div class="flex flex-row absolute justify-end
+                                            h-16 w-full bottom-0 px-3 space-x-2
+                                            bg-none opacity-0 group-hover:opacity-100
+                                            group-hover:bg-gradient-to-t from-black/20 via-gray-800/20 to-transparent 
+                                            transition-all ease-in-out duration-200 delay-100">
+                                            <button class="bg-gray-50/10 rounded-full 
+                                                px-1 h-9 w-9 my-auto hover:bg-gray-50/20
+                                                transition-colors duration-200">
+                                                <i class="mdi mdi-heart text-xl text-gray-200 p-1
+                                                    hover:text-white transition-all duration-200"
+                                                    title="Add to Favorites"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col bg-white rounded-b p-3">
+                                    <div class="text-sm font-semibold text-gray-900 hover:underline truncate">
+                                    lorem ipsum
+                                </div>
+                                <div class="text-sm text-gray-600 font-bold mt-4 mb-1">
+                                    $23
+                                </div>
+                
+                                <div class="flex flex-row mt-2">
+                                    <div class="flex flex-row flex-auto justify-end">
+                                        <a class="flex text-xs border px-3 my-auto py-2 mr-2
+                                            border-amber-500 group hover:bg-amber-500 
+                                            rounded-xss
+                                            transition-all duration-200">
+                                            
+                                            <i class="mdi mdi-cart-outline text-amber-700
+                                                group-hover:text-white delay-100"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button aria-label="slide forward" class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" id="next">
+                    <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+<script>
+    const appData = () => {
+        return {
+                percent: 0,
+
+                appInit() {
+                    // source: https://codepen.io/A_kamel/pen/qBmmGKJ
+                    window.addEventListener('scroll', () => {
+                        let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
+                            height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+                        this.percent = Math.round((winScroll / height) * 100);
+                    });
+                },
+        };
+    };
+
+    let defaultTransform = 0;
+function goNext() {
+    defaultTransform = defaultTransform - 398;
+    var slider = document.getElementById("slider");
+    if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.7) defaultTransform = 0;
+    slider.style.transform = "translateX(" + defaultTransform + "px)";
+}
+next.addEventListener("click", goNext);
+function goPrev() {
+    var slider = document.getElementById("slider");
+    if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+    else defaultTransform = defaultTransform + 398;
+    slider.style.transform = "translateX(" + defaultTransform + "px)";
+}
+prev.addEventListener("click", goPrev);
+
+</script>
+</html>
